@@ -1,0 +1,16 @@
+<h4 class="text-xl font-medium mb-4">{{taskCategory.title}}</h4>
+<ul class="list-disc pl-4 mb-4">
+    <table class="table-auto">
+        <tbody>
+            <tr *ngFor="let task of taskCategory.tasks; let i=index">
+                <td class="px-4 py-2 text-lg">{{task}}</td>
+                <td class="px-4 py-2">
+                    <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                            (click)="onDeleteTask(i)">
+                        x
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ul>

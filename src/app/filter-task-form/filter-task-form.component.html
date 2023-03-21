@@ -1,0 +1,14 @@
+<form class="py-4">
+  <fieldset class="border border-gray-400 p-4 rounded-lg w-[50%] mx-auto my-10">
+    <legend class="text-lg font-medium mb-2">Filter Task</legend>
+    
+    <select name="filterTaskSelect"
+            [(ngModel)]="filter"
+            (change)="onSelect($event)"
+            class="block w-full p-2 mb-5 rounded-lg border border-gray-400 focus:outline-none focus:border-blue-500"
+    >
+      <option value="">None</option>
+      <option *ngFor="let taskCategory of tasklist" value="{{taskCategory.title}}">{{taskCategory.title}}</option>
+    </select>
+  </fieldset>
+</form>

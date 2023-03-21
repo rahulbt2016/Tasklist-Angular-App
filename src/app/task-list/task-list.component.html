@@ -1,0 +1,19 @@
+<div>
+    <app-filter-task-form 
+        [tasklist]="tasklist"
+        [filter]="filter"
+        (selectedOption)="setFilter($event)"></app-filter-task-form>
+</div>
+
+<app-task-list-header [totalTasks]="getTotalTasks()"></app-task-list-header>
+
+<div class="w-[50%] mx-auto bg-blue-100 p-5 mb-20">
+    <div *ngFor="let taskCategory of tasklist">
+        <app-task-list-category 
+            [taskCategory]="taskCategory"
+            [filter]="filter"
+            (deleteTask)="deleteTask(taskCategory.id, $event)"
+            *ngIf="taskCategory.title.toLowerCase().includes(filter.toLowerCase())">
+        </app-task-list-category>
+    </div>
+</div>
